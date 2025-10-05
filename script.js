@@ -4,17 +4,20 @@ import Lenis from "lenis";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// NOTE: These values are interconnected - when speed changes, it affects when images finish their movement, which also affects the gap between images. When you change the number of items in spotlightItems array, you'll need to adjust these config settings together. Test different combinations until you find the right balance that looks good.
+// NOTE: These values are interconnected - when speed changes, it affects when images finish their movement,
+//  which also affects the gap between images. 
+// When you change the number of items in spotlightItems array, 
+// you'll need to adjust these config settings together. Test different combinations until you find the right balance that looks good.
 const config = {
-  gap: 0.08,
-  speed: 0.3,
-  arcRadius: 500,
+  gap: 0.10,
+  speed: 0.6,
+  arcRadius: 400,
 };
 
 const spotlightItems = [
   { name: "Después de las 12", img: "/Portadas/Despues12.png" },
   { name: "10 K de Altura", img: "/Portadas/10kportada.png" },
-  { name: "Todos Los Días...", img: "/Portadas/todoslosdias.png" },
+  { name: "Pensando en Olvidarte", img: "/Portadas/todoslosdias.png" },
   { name: "45130", img: "/Portadas/45130.jpg" },
   { name: "Dime", img: "/Portadas/Dime.jpg" },
   { name: "El Pecado Y La Redención", img: "/Portadas/portadaep.PNG" },
@@ -45,8 +48,9 @@ spotlightItems.forEach((item, index) => {
   const imgElement = document.createElement("img");
   imgElement.src = item.img;
   imgElement.alt = "";
+  
   imgWrapper.appendChild(imgElement);
-  imagesContainer.appendChild(imgWrapper);
+  imagesContainer.appendChild(imgWrapper); // Image Cover 
   imageElements.push(imgWrapper);
 });
 

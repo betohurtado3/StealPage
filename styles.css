@@ -4,8 +4,24 @@
   box-sizing: border-box;
 }
 
-body {
+@font-face {
   font-family: "PP Neue Montreal";
+  src: url("/public/Fonts/ppneuemontreal-medium.woff") format("woff2"),
+       url("/public/Fonts/ppneuemontreal-medium.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: url("/public/Fonts/ppneuemontreal-bold.woff") format("woff2"),
+       url("/public/Fonts/ppneuemontreal-bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+body {
+  font-family: "PP Neue Montreal", sans-serif;
 }
 
 img {
@@ -67,12 +83,12 @@ section {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  transform: scale(0.4);
+  transform: scale(0);
   will-change: transform;
 }
 
 .spotlight-bg-img img {
-  transform: scale(1.2);
+  transform: scale(1.5);
   will-change: transform;
 }
 
@@ -154,7 +170,22 @@ section {
   width: 200px;
   height: 150px;
   will-change: transform;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+  transition: transform 0.0s ease, box-shadow 0.7s ease;
 }
+
+/*
+.spotlight-img {
+  position: absolute;
+  width: 200px;
+  height: 150px;
+ 
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+} */
 
 .spotlight-header {
   position: absolute;
@@ -194,4 +225,14 @@ section {
   .spotlight-header {
     display: none;
   }
+}
+/* Overlay oscuro con blur para las imágenes de fondo */
+.spotlight-bg-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45); /* oscuridad elegante */
+  backdrop-filter: blur(6px);       /* difuminado */
+  z-index: 2;                       /* encima de la imagen, debajo del texto */
+  pointer-events: none;             /* no bloquea clics ni scroll */
 }
