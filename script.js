@@ -15,12 +15,42 @@ const config = {
 };
 
 const spotlightItems = [
-  { name: "Después de las 12", img: "/Portadas/Despues12.png" },
-  { name: "10 K de Altura", img: "/Portadas/10kportada.png" },
-  { name: "Pensando en Olvidarte", img: "/Portadas/todoslosdias.png" },
-  { name: "45130", img: "/Portadas/45130.jpg" },
-  { name: "Dime", img: "/Portadas/Dime.jpg" },
-  { name: "El Pecado Y La Redención", img: "/Portadas/portadaep.PNG" },
+    {
+    name: "Salto de Fe Ft Mi K.O. & Syncro",
+    img: "/Portadas/PortadaSalto.png",
+    youtube: "https://youtu.be/PBjPOcqkHlQ",
+    spotify: "https://open.spotify.com/intl-es/track/1KXhNlCpApBjMraabuMwDm?si=ca4d10372e3649d2",
+    apple: "https://music.apple.com/mx/artist/steal/250178473",
+  },
+  {
+    name: "Después de las 12",
+    img: "/Portadas/Despues12.png",
+    youtube: "https://youtu.be/mfpVaaeSSOA",
+    spotify: "https://open.spotify.com/intl-es/track/36lZIWeCXS3MhsvJjZf6Ap?si=0ab1e3636a72400a",
+    apple: "https://music.apple.com/mx/artist/steal/250178473",
+  },
+  {
+    name: "10 K de Altura",
+    img: "/Portadas/10kportada.png",
+    youtube: "https://youtu.be/obG8VQrwkBI?si=paqt1sQmmuTMHiol",
+    spotify: "https://open.spotify.com/intl-es/track/7HjYC1tUGZRmhkEfTbRVHd?si=73afcdd886ae43ef",
+    apple: "https://music.apple.com/it/song/a-10k-de-altura/1815278681",
+  },
+  {
+    name: "Pensando en Olvidarte",
+    img: "/Portadas/todoslosdias.png",
+    youtube: "https://www.youtube.com/watch?v=c4r4qLWPoGg",
+    spotify: "https://open.spotify.com/intl-es/track/1OkWzNnkvQBYFlByUIVa01?si=65765c2188264570",
+    apple: "https://music.apple.com/it/song/todos-los-d%C3%ADas-estoy-pensando-en-olvidarte-feat-kvshyyyk/1804567384",
+  },
+  {
+    name: "Deshoras Ft. Lil p",
+    img: "/Portadas/portadaep.png",
+    youtube: "https://youtu.be/1ypiKCc5UNk",
+    spotify: "https://open.spotify.com/intl-es/track/5DQl2vJ89dMKjSzY4sZX6W?si=ec236e1faacf4aa3",
+    apple: "https://music.apple.com/mx/song/deshoras-feat-lil-p/1784041336",
+  },
+  
 ];
 
 const lenis = new Lenis();
@@ -211,3 +241,48 @@ ScrollTrigger.create({
     }
   },
 });
+
+// ====== MODAL SYSTEM ======
+const modal = document.getElementById("modal");
+const modalTitle = document.getElementById("modal-title");
+const ytLink = document.getElementById("yt-link");
+const spLink = document.getElementById("sp-link");
+const amLink = document.getElementById("am-link");
+const closeBtn = document.querySelector(".modal-close");
+
+titleElements.forEach((title, index) => {
+  title.style.cursor = "pointer";
+  title.addEventListener("click", () => {
+    const song = spotlightItems[index];
+    modalTitle.textContent = "Escucha " + "'" + song.name + "'" + " en:";
+    ytLink.href = song.youtube;
+    spLink.href = song.spotify;
+    amLink.href = song.apple;
+    openModal();
+  });
+});
+
+function openModal() {
+  modal.classList.add("active");
+  gsap.fromTo(
+    ".modal-content",
+    { y: 50, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" }
+  );
+}
+
+function closeModal() {
+  gsap.to(".modal-content", {
+    y: 50,
+    opacity: 0,
+    duration: 0.3,
+    ease: "power2.in",
+    onComplete: () => modal.classList.remove("active"),
+  });
+}
+
+closeBtn.addEventListener("click", closeModal);
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) closeModal();
+});
+

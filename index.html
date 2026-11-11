@@ -5,8 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>45130 | Steal</title>
     <link rel="stylesheet" href="/styles.css" />
+    <link rel="icon" type="image/png" href="public/45130logo.png" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   </head>
   <body>
+    <!-- HERO – NUEVO LANZAMIENTO -->
+    <section class="hero-release">
+      <div class="hero-bg"></div>
+
+      <div class="hero-container">
+        <!-- Columna Izquierda -->
+        <div class="hero-left">
+          <h2>
+            Salto de Fe <br />
+            Ya disponible!
+          </h2>
+
+          <div class="hero-buttons">
+            <a
+              href="https://linktw.in/kfNaaW"
+              target="_blank"
+              class="btn-hero yt"
+              >YouTube</a
+            >
+            <a
+              href="https://open.spotify.com/intl-es/track/1KXhNlCpApBjMraabuMwDm?si=ca4d10372e3649d2"
+              target="_blank"
+              class="btn-hero sp"
+              >Spotify</a
+            >
+          </div>
+        </div>
+
+        <!-- Columna Derecha (Portada) -->
+        <div class="hero-right">
+          <div class="cover-wrapper">
+            <img
+              src="PortadaSalto.png"
+              alt="Portada Salto de Fe"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- 🔽 Flechas animadas -->
+      <div class="scroll-arrows">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </section>
+
     <section class="intro">
       <h1>Del Noroeste de la ciudad.</h1>
     </section>
@@ -18,7 +68,7 @@
       </div>
 
       <div class="spotlight-bg-img">
-        <img src="/stealcantando3.jpg" alt="" />
+        <img src="public/stealcantando3.jpg" alt="" />
       </div>
 
       <div class="spotlight-titles-container">
@@ -35,6 +85,26 @@
     <section class="outro">
       <h1>Venimos a pasarnos el juego.</h1>
     </section>
+
+    <!-- Modal de Plataformas -->
+    <div class="modal-overlay" id="modal">
+      <div class="modal-content">
+        <button class="modal-close">&times;</button>
+        <h2 id="modal-title">Canción</h2>
+        <div class="platforms">
+          <a href="#" target="_blank" id="yt-link" class="platform youtube">
+            <img src="public//icons/Youtube.png" alt="YouTube" /> <br />Youtube
+          </a>
+          <a href="#" target="_blank" id="sp-link" class="platform spotify">
+            <img src="public//icons/Spotify.png" alt="Spotify" /> <br />Spotify
+          </a>
+          <a href="#" target="_blank" id="am-link" class="platform apple">
+            <img src="public//icons/Apple.png" alt="Apple Music" /><br />Apple
+          </a>
+        </div>
+      </div>
+    </div>
+
     <script type="module" src="/script.js"></script>
   </body>
 </html>
